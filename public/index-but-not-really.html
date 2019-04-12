@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="flipclock.css">
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        font-family: Tahoma, Geneva, sans-serif;
+        background-color: black;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .success h1 {
+        display: none;
+      }
+      #flipclock {
+        margin: 0 auto;
+        padding: 0;
+        width: auto;
+      }
+      .flip-clock-label {
+        display: none;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="flipclock.min.js"></script>
+    <script>
+      var clock;
+
+      $(document).ready(function () {
+        clock = $('#flipclock').FlipClock({
+          clockFace: 'MinuteCounter',
+          countdown: true,
+          autoStart: false
+        });
+
+        clock.setTime(1800); // Update this to adjust the escape room solve time
+      });
+      var host = window.document.location.host;
+      var ws = new WebSocket('wss://' + host);
+      ws.onmessage = function(event) {
+        switch (event.data) {
+          case 'start893284':
+            clock.start();
+            break;
+          case 'stop0387491': // change this code to something fun for people to type in
+            clock.stop();
+            $('body').css('background-color', 'white');
+            $('.success h1').show();
+            break;
+          case 'reset2938745':
+            $('body').css('background-color', 'black');
+            $('.success h1').hide();
+            clock.reset();
+            clock.setTime(1800);
+            break;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="success">
+        <h1>Success!</h1>
+      </div>
+      <div id="flipclock"></div>
+    </div>
+  </body>
+</html>

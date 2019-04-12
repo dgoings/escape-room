@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        font-family: Tahoma, Geneva, sans-serif;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      #wrapper {
+        width: 80%;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: justify;
+      }
+      #pizza-slices {
+        margin: 10px 25%;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Binary Circles</h1>
+      <p>Binary numbers, the lifeblood of computing machines, are not very readable for humans. At a glance, do you know which base-10 number is represented by 110101? What about 001110?</p>
+      <p>Instead of a dense string of digits, let's try representing these numbers visually. If we take a circle, we can imagine cutting it into slices, like a pizza. Six slices gives us six bits to work with.</p>
+      <img id="pizza-slices" src="circle.png" width="50%">
+      <p>To indicate an "on" or 1-bit, let's mark that section of the circle with an extended line. We'll start from the bottom of the circle going clockwise, so the lower-left section represents 2<sup>0</sup>, the middle-left section represents 2<sup>1</sup>, continuing around to the lower-right section which represents 2<sup>5</sup>.</p>
+      <img src="circle-1.png" width="50%"><img src="circle-8.png" width="50%">
+      <p>This design is clean enough that we don't really need to show the actual circle slices. Here are a few examples of some different binary numbers represented this way:</p>
+      <img src="circles.png" width="100%">
+      <p>Now you can practice creating some binary circles for yourself. A base-10 number on the outer edge of the circle gives you an orientation for the bottom of the circle.</p>
+    </div>
+  </body>
+</html>

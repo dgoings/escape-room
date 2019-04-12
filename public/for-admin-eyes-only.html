@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        font-family: Tahoma, Geneva, sans-serif;
+        background-color: black;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      #flipclock {
+        margin: 0 auto;
+        padding: 0;
+        width: auto;
+      }
+      .flip-clock-label {
+        display: none;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+      var host = window.document.location.host;
+      var ws = new WebSocket('wss://' + host);
+
+      $(document).ready(function () {
+        $('#start').on('click', function() {
+          console.log('starting');
+          ws.send('start893284');
+        });
+
+        $('#stop').on('click', function () {
+          console.log('stopping');
+          ws.send('stop0387491');
+        });
+
+        $('#reset').on('click', function () {
+          console.log('resetting');
+          ws.send('reset2938745');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </div>
+  </body>
+</html>

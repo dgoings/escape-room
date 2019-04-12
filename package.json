@@ -1,0 +1,22 @@
+{
+  "name": "dev-escape-room",
+  "version": "1.0.0",
+  "description": "Programming-focused escape room website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node ./dist/server/index.js"
+  },
+  "author": "Dylan Goings",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "ws": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/ws": "^6.0.1",
+    "typescript": "^3.4.3"
+  }
+}
